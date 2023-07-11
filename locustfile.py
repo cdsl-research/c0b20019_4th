@@ -20,7 +20,7 @@ class UserBehavior(TaskSet):
         """ on_start is called when a Locust start before any task is scheduled """
         #self.comment()
 
-    @task(29)
+    @task(35)
     def index(self):
         self.client.get("/shop")
     
@@ -35,7 +35,7 @@ class UserBehavior(TaskSet):
         }
         self.res = self.client.post("/?wc-ajax=add_to_cart", data, headers=self.headers)
     
-    @task(10)
+    @task(4)
     def checkout(self):
         self.addToCart()
         self.res2 = self.client.get("/checkout/", cookies=self.res.cookies)
@@ -71,6 +71,6 @@ class UserBehavior(TaskSet):
         }
         self.client.post("/?wc-ajax=checkout", personal_data, cookies=self.res.cookies)
 class WebsiteUser(HttpUser):
-    host = 'http://192.168.100.32/'
+    host = 'http://x.x.xx.x/'
     tasks = {UserBehavior}
     wait_time = constant(0)
