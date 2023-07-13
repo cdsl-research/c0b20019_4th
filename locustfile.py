@@ -20,11 +20,11 @@ class UserBehavior(TaskSet):
         """ on_start is called when a Locust start before any task is scheduled """
         #self.comment()
 
-    @task(35)
+    @task(52)
     def index(self):
         self.client.get("/shop")
     
-    @task(61)
+    @task(44)
     def addToCart(self):
         foo = ["36", "34", "45", "41", "32", "43"] # ガム，チョコ，ふがし，ポッキー，ポテチ，モナカ
         num_item = random.randint(1, 10)
